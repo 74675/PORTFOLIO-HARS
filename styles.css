@@ -1,0 +1,72 @@
+/* Base Resets and Performance Variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --text-color: #ececec;
+    --background-color: #121212;
+    --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* Enhances rendering performance on high-DPI displays */
+    -webkit-font-smoothing: antialiased; 
+}
+
+/* Semantic Layout Engineering */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    position: sticky;
+    top: 0;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+main {
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive Project Grid */
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.project-card {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    /* transition updated for opacity */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    will-change: transform, opacity;
+    /* Hidden state for JS animation */
+    opacity: 0; 
+    transform: translateY(20px); 
+}
+
+/* Visible state toggled by JS */
+.project-card.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card.fade-in-visible:hover {
+    transform: translateY(-5px);
+}
+
